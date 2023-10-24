@@ -12,5 +12,4 @@ para ayudar a nuestros clientes a tomar decisiones informadas.
 
 --Público Objetivo--
 Nuestro sitio web está dirigido a una audiencia apasionada por la tecnología, incluyendo gamers, entusiastas de la informática y profesionales que buscan mejorar su entorno de
-trabajo. Nuestros clientes son personas que valoran el rendimiento, la comodidad y la estética en sus dispositivos informáticos. Además, nos enfocamos en ofrecer opciones para todos
-los niveles, desde principiantes hasta expertos, lo que hace que nuestro sitio sea accesible para aquellos que buscan periféricos de alta calidad a precios competitivos.
+trabajo. Nuestros clientes son personas que valoran el rendimiento, la comodidad y la estética en sus dispositivos informáticos. Además, nos enfocamos en ofrecer opciones para todos los niveles, desde principiantes hasta expertos, lo que hace que nuestro sitio sea accesible para aquellos que buscan periféricos de alta calidad a precios competitivos.
