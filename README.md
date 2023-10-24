@@ -18,3 +18,10 @@ los niveles, desde principiantes hasta expertos, lo que hace que nuestro sitio s
 --Integrantes--
 
 Mario Alejandro Paz - Gustavo Cortez - Ramiro Iván Serrano - Nicolas Rojas - Nelson Bravo
+
+--Lista de Referentes-- 
+
+1-https://www.compugarden.com.ar/  se tomó el home como referencia 
+2-https://www.fullh4rd.com.ar/  se tomó como referencia el detalle del producto 
+3-https://www.tucompu.com.ar/ se tomó como referencia el navbar
+4- https://dust2.gg/ se tomó como referencia el carrito de compras
