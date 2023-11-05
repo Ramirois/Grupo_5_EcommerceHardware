@@ -3,10 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="CSS/estilos.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/register.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/552178b96b.js" crossorigin="anonymous"></script>
     <title>Proyecto Integrador Grupo 5</title>
 </head>
 <body>
-    <h1>Hola Mundo!</h1>
+    <main>
+        <div class="registrate">
+          <form action="/crear-registro" method="POST" class="crearregistro">
+              <label class="etiqueta-registro">Registrate</label>
+              <div class="control-etiqueta">
+                 <label class="etiqueta-formulario">Nombre</label>
+              </div>
+              <div class="control-formulario">
+                  <input type="text" name="Nombre" required class="input-form" placeholder="" >
+              </div>
+              <div class="control-etiqueta">
+                 <label class="etiqueta-formulario">Apellido</label>
+              </div>
+              <div class="control-formulario">
+                 <input type="text" name="Apellido" class="input-form" placeholder="">
+                 
+              </div>
+              <div class="control-etiqueta">
+                 <label class="etiqueta-formulario">Email</label>
+              </div>
+              <div class="control-formulario">
+                  <input type="email" name="email" class="input-form" placeholder="">
+              </div>
+              <div class="control-etiqueta">
+                 <label class="etiqueta-formulario">Contraseña</label>
+              </div>
+              <div class="control-formulario">
+                  <input type="password" name="nombreyapellido" class="input-form" placeholder="contraseña" required>
+              </div>
+              <div class="control-formulario">
+                  <input type="password" name="nombreyapellido" class="input-form" placeholder="confirmar contraseña" required>
+              </div>
+              <div class="control-checkbox">
+                 <input type="checkbox" name="perfildeusuario" value="electro" class="checkbox">
+                 <label for="vendedor">Acepto los terminos y condiciones</label>
+             </div>
+              <div class="botones">
+                  <button type="submit" class="boton-continuar"><a href="/">Continuar</a></button>
+              </div>
+ 
+          </form>
+        </div>
+     </main>
 </body>
 </html>
