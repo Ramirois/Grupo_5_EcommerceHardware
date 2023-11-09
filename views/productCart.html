@@ -4,9 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="CSS/estilos.css" rel="stylesheet">
+    <link href="CSS/productCart.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
     <title>Proyecto Integrador Grupo 5</title>
 </head>
 <body>
-    <h1>Hola Mundo!</h1>
+    <header>Acá va la barra de navegación</header>
+    <main>
+       <h1><i class="fa-solid fa-cart-shopping"></i> Carrito de compras</h1>
+       <section class="carrito">
+        <ul class="header-carrito">
+            <li id="producto">Producto</li>
+            <li>Precio</li>
+            <li>Cantidad</li>
+            <li>Subtotal</li>
+        </ul>
+        <div class="contenedor-productos">
+        <div class="carrito-item">
+            <img src="img/memoria-16gb-ddr4-3200-kingston-fury-beast-0.jpg" alt="Memoria RAM">
+                <span class="carrito-item-titulo">MEMORIA 16GB DDR4 3200 KINGSTON FURY BEAST</span>
+                <span class="carrito-item-precio">$52.999,99</span>
+                <div class="selector-cantidad">
+                    <input type="text" value="1" class="carrito-item-cantidad" disabled>
+                </div>
+                <span class="carrito-item-subtotal">$52.999,99</span>
+        </div>
+        <div class="carrito-item">
+            <img src="img/hd-ssd-480gb-kingston-a400-sata-iii-25-0.jpg" alt="Disco SSD">
+                <span class="carrito-item-titulo">HD SSD 480GB KINGSTON A400 SATA III 2.5"</span>
+                <span class="carrito-item-precio">$35.819,00</span>
+                <div class="selector-cantidad">
+                    <input type="text" value="1" class="carrito-item-cantidad" disabled>
+                </div>
+                <span class="carrito-item-subtotal">$35.819,00</span>
+        </div>
+        </div>
+
+        <div class="cupon">
+            <input type="text" placeholder="Código de cupón">
+            <input type="button" value="Aplicar cupón" name="cupon" id="">
+        </div>
+       </section>
+
+       <section class="panel-total">
+        <h4>Total del carrito</h4>
+        <div class="subtotal">Subtotal: $88.818,99</div>
+        <div class="envio">
+            Envío: Envío gratuito <br>
+            Enviar a: Santiago del Estero <br>
+            <button class="cambiar-direccion">Cambiar dirección</button>
+        </div>
+        <div class="carrito-total">
+            <div class="fila">
+                <strong>Tu total</strong>
+                <span class="carrito-precio-total">
+                    $88.818,99
+                </span>
+            </div>
+            <button class="pagar">Pagar</button>
+        </div>
+       </section>
+    </main>
+    <footer></footer>
 </body>
 </html>

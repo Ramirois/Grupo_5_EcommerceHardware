@@ -13,3 +13,7 @@ app.get('/', (req,res) => {
     res.sendFile(path.resolve(__dirname, './views/index.html'));
 })
 //checar si está bien escrito el nombre de la ruta
+
+app.get('/productCart', (req,res)=> {
+    res.sendFile(path.resolve(__dirname, './views/productCart.html'));
+})
