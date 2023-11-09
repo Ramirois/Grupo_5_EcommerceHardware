@@ -12,8 +12,23 @@ app.listen(3000, () =>{
 app.get('/', (req,res) => {
     res.sendFile(path.resolve(__dirname, './views/index.html'));
 })
+app.get('/register.html', (req, res) => {
+    res.sendFile(path.resolve(__dirname,'./views/register.html'))
+})
+
+app.get('/login.html', (req, res) => {
+    res.sendFile(path.resolve(__dirname,'./views/login.html'))
+})
 //checar si está bien escrito el nombre de la ruta
 
-app.get('/productCart', (req,res)=> {
+app.get('/productCart.html', (req,res)=> {
     res.sendFile(path.resolve(__dirname, './views/productCart.html'));
 })
+app.get('/register.html', (req, res) => {
+    res.sendFile(path.resolve(__dirname,'./views/register.html'))
+})
+
+app.get('/login.html', (req, res) => {
+    res.sendFile(path.resolve(__dirname,'./views/login.html'))
+})
+//checar si está bien escrito el nombre de la ruta
