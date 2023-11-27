@@ -10,6 +10,14 @@ app.listen(3000, () =>{
 });
 
 app.get('/', (req,res) => {
-    res.sendFile(path.resolve(__dirname, './views/index.html'));
+    res.sendFile(path.resolve(__dirname, './src/views/index.html'));
+})
+
+app.get('/login.html', (req,res) => {
+    res.sendFile(path.resolve(__dirname, './src/views/login.html'));
+})
+
+app.get('/register.html', (req,res) => {
+    res.sendFile(path.resolve(__dirname, './src/views/register.html'));
 })
 //checar si está bien escrito el nombre de la ruta
