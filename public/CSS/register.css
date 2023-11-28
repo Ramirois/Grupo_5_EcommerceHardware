@@ -1,0 +1,84 @@
+main {
+    text-align: center;
+}
+
+.registrate {
+    width: 40%;
+    margin: auto;
+
+}
+.crearregistro {
+    width: 100%;
+}
+
+.control-formulario {
+    padding: 10px;
+    text-align: left;
+}
+
+.control-checkbox {
+    text-align: left;
+    margin: 20px 0px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+
+.checkbox {
+    padding: 15px;
+    margin: 10px;
+    
+}
+
+
+.control-etiqueta {
+    margin-top: 16px;
+    text-align: left;
+    padding-left: 10px;
+    font-weight: bold;
+}
+
+.etiqueta-registro {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.input-form {
+    width: 100%;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+.boton-continuar{
+    background-color: #008170;
+    border: none;
+    font-size: 22px;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: all 500ms;
+
+}
+
+.boton-continuar:hover {
+    background-color: #005B41;
+    box-shadow: 0px 0px 15px #005B41;
+
+}
+
+.boton-continuar a {
+    color: #fff;
+    text-decoration: none;
+    
+}
+
+
+
+
+
+
+
+
+
+
