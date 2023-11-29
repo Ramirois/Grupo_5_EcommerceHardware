@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+    margin: 0%;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: lightblue;
+}
+
+footer a {
+    text-align: center;
+    padding-bottom: 10px;
+    text-decoration: none;
+    color: grey;
+}
+
+@media (min-width: 768px) {
+    footer {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    footer a {
+        min-width: 120px;
+        font-size: 20px;
+        padding: 50px 20px;
+    }
+}
+
+@media (min-width: 1200px) {
+    footer a {
+        font-size: 30px;
+    }
+}

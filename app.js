@@ -10,7 +10,7 @@ app.listen(3000, () =>{
 });
 
 app.get('/', (req,res) => {
-    res.sendFile(path.resolve(__dirname, './views/index.html'));
+    res.sendFile(path.resolve(__dirname, './views/partials/head.ejs'));
 })
 app.get('/register.html', (req, res) => {
     res.sendFile(path.resolve(__dirname,'./views/register.html'))

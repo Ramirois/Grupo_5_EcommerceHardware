@@ -1,0 +1,153 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.search {
+    border-radius: 5px;
+}
+
+.main-header {
+    background-color: lightblue;
+    padding: 10px;
+}
+
+.cart {
+    width: 30px;
+}
+
+.logo {
+    height: 70px;
+    width: 90px;
+}
+
+.hamburger-button {
+    background-color: black;
+    color: white;
+    display: block;
+    max-width: 50px;
+    padding: 15px 0;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 20px;
+    margin: auto;
+}
+
+.navbar {
+    display: none;
+}
+
+.login {
+    padding-left: 10px;
+    width: 110px;
+}
+
+.login > a:first-child {
+    display: none;
+}
+
+.navbar a{
+    color: gray;
+    display: inline-block;
+    padding: 5px 0;
+}
+
+.main-header-top-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+@media (min-width: 768px) {
+
+    .main-header-top-bar {
+        justify-content: space-between;
+    }
+
+    .search {
+        width: 250px;
+    }
+
+    .login {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .login > a:first-child {
+        display: flex;
+        align-items: center;        
+    }
+
+    .logo{
+        width: 200px;
+        height: auto;
+    }
+
+    .hamburger-button {
+        display: none;
+    }
+
+    .navbar ul {
+        display: flex;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: center;
+    }
+
+    .navbar li {
+        margin: 0 15px;
+    }
+}
+
+@media (min-width: 1200px) { 
+    .main-header-top-bar, .navbar {
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .search {
+        height: 50px;
+        width: 500px;
+        font-size: 20px;
+    }
+
+    .search::placeholder {
+        font-size: 20px;
+        padding-left: 10px;
+    }
+
+    .navbar {
+        margin-top: 10px;
+    }
+
+    .navbar li {
+        margin: 0 20px;
+    }
+
+    .navbar a {
+        font-size: 20px;
+    }
+
+    .cart {
+        width: 50px;
+    }
+
+    .login {
+        width: 200px;
+    }
+
+    .login a{
+        font-size: 20px;
+    }
+}
