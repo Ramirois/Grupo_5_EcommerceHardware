@@ -50,7 +50,7 @@ main {
     border-radius: 5px;
 }
 .boton-continuar{
-    background-color: #008170;
+    background-color: #068FFF;
     border: none;
     font-size: 22px;
     color: #fff;
@@ -62,8 +62,8 @@ main {
 }
 
 .boton-continuar:hover {
-    background-color: #005B41;
-    box-shadow: 0px 0px 15px #005B41;
+    background-color: #4E4FEB;
+    box-shadow: 0px 0px 15px #4E4FEB;
 
 }
 

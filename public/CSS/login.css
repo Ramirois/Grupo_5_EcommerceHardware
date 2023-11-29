@@ -43,7 +43,7 @@ main {
     border-radius: 5px;
 }
 .boton-continuar{
-    background-color: #008170;
+    background-color: #068FFF;
     border: none;
     font-size: 22px;
     color: #fff;
@@ -55,8 +55,8 @@ main {
 }
 
 .boton-continuar:hover {
-    background-color: #005B41;
-    box-shadow: 0px 0px 15px #005B41;
+    background-color: #4E4FEB;
+    box-shadow: 0px 0px 15px #4E4FEB;
 
 }
 
@@ -68,7 +68,7 @@ main {
 .boton-crear {
     background-color: white;
     font-size: 22px;
-    border-color: #008170;
+    border-color: #068FFF;
     border-style: solid;
     color: #fff;
     padding: 10px 26px;
@@ -79,11 +79,11 @@ main {
 }
 
 .boton-crear:hover {
-    box-shadow: 0px 0px 15px #005B41;
+    box-shadow: 0px 0px 15px #068FFF;
 
 }
 .boton-crear a {
-    color: #005B41;
+    color: #068FFF;
     text-decoration: none;
     font-size: 16px;
     font-weight: bold;
