@@ -24,10 +24,6 @@ a{
     width: 30px;
 }
 
-.logo {
-    height: 70px;
-    width: 90px;
-}
 
 .hamburger-button {
     background-color: black;
@@ -53,7 +49,14 @@ a{
 .login > a:first-child {
     display: none;
 }
-
+.login > a:nth-child(2) {
+    display: none;
+     
+}
+.login > a:nth-child(3) {
+    display: none;
+     
+}
 .navbar a{
     color: gray;
     display: inline-block;
@@ -64,7 +67,6 @@ a{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
 }
 
 @media (min-width: 768px) {
@@ -84,7 +86,21 @@ a{
 
     .login > a:first-child {
         display: flex;
-        align-items: center;        
+        align-items: center;
+        color: #068FFF;
+        font-size: 24px;        
+    }
+    .login > a:nth-child(2) {
+        display: flex;
+        align-items: center;
+        color: #068FFF;
+        font-size: 24px;         
+    }
+    .login > a:nth-child(3) {
+        display: flex;
+        align-items: center;
+        color: #068FFF;
+        font-size: 24px; 
     }
 
     .logo{
@@ -148,6 +164,7 @@ a{
     }
 
     .login a{
+        padding: 30px;
         font-size: 20px;
     }
 }
