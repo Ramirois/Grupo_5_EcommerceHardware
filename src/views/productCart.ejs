@@ -1,16 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="CSS/estilos.css" rel="stylesheet">
-    <link href="CSS/productCart.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
-    <title>Proyecto Integrador Grupo 5</title>
-</head>
+    <%- include('./partials/head.ejs') %>
 <body>
-    <header>Acá va la barra de navegación</header>
+    <%- include('./partials/header.ejs') %>
     <main>
        <h1><i class="fa-solid fa-cart-shopping"></i> Carrito de compras</h1>
        <section class="carrito">
@@ -66,6 +58,5 @@
         </div>
        </section>
     </main>
-    <footer></footer>
-</body>
+    <%- include('./partials/footer.ejs') %>
 </html>

@@ -19,5 +19,4 @@ app.use('/', rutas);
 
 app.use('/usuario', rutausuario);
 
-app.use('/', rutaproductos);
-//checar si está bien escrito el nombre de la ruta
+app.use('/producto', rutaproductos);
