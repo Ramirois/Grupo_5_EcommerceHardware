@@ -6,7 +6,9 @@ const userController = {
 },
 
     register: (req,res)=>{
-        res.render(path.resolve(__dirname, '../views/register'));
+
+    res.render(path.resolve(__dirname, '../views/register'));
+
 }
 }
 
