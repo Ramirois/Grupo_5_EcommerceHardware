@@ -1,0 +1,108 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+}
+
+/*
+paleta: https://colorhunt.co/palette/0000004e4feb068fffeeeeee
+
+*/
+
+body{
+    background-color: #EEEEEE;
+    font-family: Roboto;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.carrito{
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+main > h1{
+    width: 100%;
+}
+
+.header-carrito{
+    display: flex;
+    list-style: none;
+    background-color: #4E4FEB;
+    width: 100%;
+    justify-content: space-between;
+    
+}
+
+.header-carrito #producto{
+    width: 20%;
+    justify-content: center;
+}
+
+.carrito-item{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.carrito-item > img {
+    width: 10%;
+    align-items: center;
+    height: 100%;
+}
+
+.carrito-item > .carrito-item-titulo{
+    width: 10%;
+    padding: 0;
+}
+
+.carrito-item > i{
+    position: relative;
+}
+
+
+
+.cupon {
+    margin-top: 10px;
+}
+
+.panel-total {
+    text-align: center;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+.panel-total > .subtotal {
+    width: 100%;
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+}
+
+.envio{
+    width: 100%;
+    border-bottom: 1px solid black; 
+    padding-bottom: 10px;
+}
+
+@media  (min-width:769px) {
+.carrito{
+    margin-top: 10px;
+    width: 60vw;
+    border: 1px solid gray;
+    border-radius: 15px;
+    box-shadow: 10px black;
+}
+
+.panel-total{
+    border: 1px solid gray;
+    border-radius: 15px;
+    width: 35vw;
+    height: 100%;
+}
+}
