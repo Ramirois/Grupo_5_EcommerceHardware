@@ -46,17 +46,7 @@ a{
     width: 110px;
 }
 
-.login > a:first-child {
-    display: none;
-}
-.login > a:nth-child(2) {
-    display: none;
-     
-}
-.login > a:nth-child(3) {
-    display: none;
-     
-}
+
 .navbar a{
     color: gray;
     display: inline-block;
@@ -102,6 +92,12 @@ a{
         color: #068FFF;
         font-size: 24px; 
     }
+    .login > a:nth-child(4) {
+        display: flex;
+        align-items: center;
+        color: #068FFF;
+        font-size: 24px; 
+    }
 
     .logo{
         width: 250px;
@@ -114,15 +110,16 @@ a{
 
     .navbar ul {
         display: flex;
+        justify-content: space-between;
     }
 
     .navbar {
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
     }
 
     .navbar li {
-        margin: 0 15px;
+        margin: 0 30px;
     }
 }
 
@@ -145,10 +142,13 @@ a{
 
     .navbar {
         margin-top: 10px;
+        justify-content: space-around;
     }
 
-    .navbar li {
+    .navbar ul {
         margin: 0 20px;
+        justify-content: space-around;
+        width: 100%;
     }
 
     .navbar a {

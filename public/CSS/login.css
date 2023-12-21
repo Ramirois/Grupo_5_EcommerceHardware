@@ -18,6 +18,7 @@ main {
 .control-formulario {
     padding: 10px;
     text-align: left;
+    color: grey;
 }
 
 
@@ -29,16 +30,20 @@ main {
     text-align: left;
     padding-left: 10px;
     font-weight: bold;
+    color: grey;
 }
 
-.etiqueta-login {
-    font-size: 26px;
-    font-weight: bold;
-}
+.titulo-login {
+    font-size: 2.5rem; /* Equivalente a display-5 en Bootstrap */
+    text-align: center;
+    padding-top: 10px;
+    color:  #2a77c4 ; /* Color de texto oscuro en Bootstrap */
+    /* Otros estilos para el h2 según tus necesidades */
+  }
 
 .input-form {
     width: 100%;
-    border: none;
+    border: grey;
     padding: 10px;
     border-radius: 5px;
 }
@@ -94,4 +99,8 @@ main {
 }
 .boton-registro {
     margin: 25px;
+}
+
+.text-danger {
+    color: red;
 }

@@ -3,6 +3,15 @@
         padding: 0;;
         box-sizing: border-box;
     }
+
+    /* paleta
+
+    #040c24  #1bb2dd  #b9b9c1  #2a77c4 
+
+    */
+    main {
+        color: #fff;
+    }
     
     body {
         font-family: 'Roboto', Arial, sans-serif;
@@ -33,14 +42,14 @@
     }
     
     .marcas{
-        width: 98%;
+        width: 100%;
         height: 45px;
         background-color: black;
         margin: auto;
         line-height: 45px;
         border-radius: 15px;
         font-family: 'Vina Sans', sans-serif;
-        font-size: 25px;
+        font-size: 20px;
     }
     
     .marcas ul{
@@ -96,6 +105,8 @@
         background-color: #fff;
         width: 95%;
         margin: 0 10px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 50px rgb(100, 100, 100);
         
     }
     
@@ -199,6 +210,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
+            padding: 20px;
         }
     
         .producto{

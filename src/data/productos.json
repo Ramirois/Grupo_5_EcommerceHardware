@@ -1,0 +1,115 @@
+[
+  {
+    "id": 1,
+    "nombre": "Laptop Ultrabook",
+    "descripcion": "Potente laptop ultrabook con procesador de última generación, pantalla táctil y diseño delgado.",
+    "color": "Plateado",
+    "categoria": "Informática",
+    "precio": 1200,
+    "image": "laptop.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Smartphone Premium",
+    "descripcion": "Teléfono inteligente de gama alta con cámara de alta resolución, pantalla AMOLED y carga inalámbrica.",
+    "color": "Negro",
+    "categoria": "Celulares",
+    "precio": 800,
+    "image": "smartphone.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Impresora 3D Profesional",
+    "descripcion": "Impresora 3D de alta precisión con amplia área de impresión y capacidad para imprimir diversos materiales.",
+    "color": "Blanco",
+    "categoria": "Impresión 3D",
+    "precio": 2500,
+    "image": "impresora3d.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "Teclado Mecánico RGB",
+    "descripcion": "Teclado mecánico para gaming con retroiluminación RGB personalizable y switches de alta durabilidad.",
+    "color": "Negro",
+    "categoria": "Informática",
+    "precio": 150,
+    "image": "teclado.jpg"
+  },
+  {
+    "id": 5,
+    "nombre": "Smartwatch Fitness",
+    "descripcion": "Smartwatch con funciones avanzadas de seguimiento de salud, GPS integrado y resistencia al agua.",
+    "color": "Azul",
+    "categoria": "Celulares",
+    "precio": 200,
+    "image": "smartwatch.jpg"
+  },
+  {
+    "id": 6,
+    "nombre": "Filamento PLA para Impresora 3D",
+    "descripcion": "Filamento PLA de alta calidad para impresión 3D, disponible en varios colores.",
+    "color": "Rojo",
+    "categoria": "Impresión 3D",
+    "precio": 30,
+    "image": "filamento.jpg"
+  },
+  {
+    "id": 7,
+    "nombre": "Monitor Gaming Curvo",
+    "descripcion": "Monitor curvo de alta velocidad de actualización y resolución para una experiencia de juego inmersiva.",
+    "color": "Negro",
+    "categoria": "Informática",
+    "precio": 700,
+    "image": "monitor.jpg"
+  },
+  {
+    "id": 8,
+    "nombre": "Cargador Inalámbrico Qi",
+    "descripcion": "Cargador inalámbrico compatible con tecnología Qi para cargar dispositivos compatibles sin cables.",
+    "color": "Blanco",
+    "categoria": "Celulares",
+    "precio": 40,
+    "image": "cargador.jpg"
+  },
+  {
+    "id": 9,
+    "nombre": "Resina UV para Impresora 3D",
+    "descripcion": "Resina UV de alta calidad para impresión 3D de modelos detallados y precisos.",
+    "color": "Transparente",
+    "categoria": "Impresión 3D",
+    "precio": 50,
+    "image": "resina.jpg"
+  },
+  {
+    "id": 10,
+    "nombre": "Altavoces Bluetooth",
+    "descripcion": "Altavoces Bluetooth portátiles con sonido envolvente, batería de larga duración y diseño elegante.",
+    "color": "Gris",
+    "categoria": "Informática",
+    "precio": 80,
+    "image": "altavoces.jpg"
+  },
+  {
+    "id": 11,
+    "nombre": "AS",
+    "descripcion": "AS",
+    "precio": "120",
+    "descuento": "15",
+    "image": "1701915537888_img.jpg"
+  },
+  {
+    "id": 12,
+    "nombre": "asd",
+    "descripcion": "asd",
+    "precio": "120",
+    "image": "1701986716899_img.webp"
+  },
+  {
+    "id": 13,
+    "nombre": "Producto",
+    "descripcion": "agregado hoy",
+    "precio": "120",
+    "descuento": "15",
+    "image": "1702924293946_img.jpg"
+  }
+]
