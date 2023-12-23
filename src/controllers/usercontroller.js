@@ -84,7 +84,6 @@ ingresar: (req,res) =>{
     res.redirect('/')
   }
 
-
 }
 
 module.exports = userController;

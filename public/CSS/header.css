@@ -75,7 +75,7 @@ a{
     }
 
     .login > a:first-child {
-        display: flex;
+        display:  flex;
         align-items: center;
         color: #068FFF;
         font-size: 24px;        
