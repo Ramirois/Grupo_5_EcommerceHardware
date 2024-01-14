@@ -1,0 +1,140 @@
+[
+  {
+    "id": 1,
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john.doe@example.com",
+    "password": "securepassword",
+    "category": "Cliente",
+    "image": "user1.jpg"
+  },
+  {
+    "id": 2,
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "email": "jane.smith@example.com",
+    "password": "strongpassword",
+    "category": "Cliente",
+    "image": "user2.jpg"
+  },
+  {
+    "id": 3,
+    "firstName": "Admin",
+    "lastName": "User",
+    "email": "admin@example.com",
+    "password": "adminpassword",
+    "category": "Administrador",
+    "image": "admin.jpg"
+  },
+  {
+    "id": 4,
+    "firstName": "Alice",
+    "lastName": "Johnson",
+    "email": "alice.johnson@example.com",
+    "password": "alicepassword",
+    "category": "Cliente",
+    "image": "user3.jpg"
+  },
+  {
+    "id": 5,
+    "firstName": "Bob",
+    "lastName": "Williams",
+    "email": "bob.williams@example.com",
+    "password": "bobpassword",
+    "category": "Cliente",
+    "image": "user4.jpg"
+  },
+  {
+    "id": 6,
+    "firstName": "Eva",
+    "lastName": "Davis",
+    "email": "eva.davis@example.com",
+    "password": "evapassword",
+    "category": "Cliente",
+    "image": "user5.jpg"
+  },
+  {
+    "id": 7,
+    "firstName": "Carlos",
+    "lastName": "Martinez",
+    "email": "carlos.martinez@example.com",
+    "password": "carlospassword",
+    "category": "Cliente",
+    "image": "user6.jpg"
+  },
+  {
+    "id": 8,
+    "firstName": "Sophie",
+    "lastName": "Brown",
+    "email": "sophie.brown@example.com",
+    "password": "sophiepassword",
+    "category": "Cliente",
+    "image": "user7.jpg"
+  },
+  {
+    "id": 9,
+    "firstName": "David",
+    "lastName": "Miller",
+    "email": "david.miller@example.com",
+    "password": "davidpassword",
+    "category": "Cliente",
+    "image": "user8.jpg"
+  },
+  {
+    "id": 10,
+    "firstName": "Grace",
+    "lastName": "Jones",
+    "email": "grace.jones@example.com",
+    "password": "gracepassword",
+    "category": "Cliente",
+    "image": "user9.jpg"
+  },
+  {
+    "nombre": "aNGEL",
+    "apellido": "ASFA",
+    "email": "ANGEL_ASAF@HOTMAIL.COM",
+    "password": "$2a$10$J4zEvNfamtWRIh/LwBDUgeUKn6PrhqZkmHICthLgBox8ftzJHs32i",
+    "avatar": "foto-1702909802474.jpg",
+    "role": 1
+  },
+  {
+    "nombre": "ASA",
+    "apellido": "ASAD",
+    "email": "ANGELASAF@GMAIL.COM",
+    "password": "$2a$10$pwUSDuaSZwgkJKKq.iBTUeeg0UO8Rgz1efwTugBl/mBcBrX45XO26",
+    "avatar": "foto-1702909909389.jpg",
+    "role": 1
+  },
+  {
+    "nombre": "ASD",
+    "apellido": "ASD",
+    "email": "ASD@xn--hotmail-9za.com",
+    "password": "$2a$10$eGYM3zBJSYH5cRVvynLFPe0SW.BKQdxjxvSbCZSbRI2muBmTNU1n.",
+    "avatar": "foto-1702910313642.jpg",
+    "role": 1
+  },
+  {
+    "nombre": "ASD",
+    "apellido": "ASD",
+    "email": "ASD@xn--hotmail-9za.com",
+    "password": "$2a$10$HiPvnrsJOH4rcha2vHhr7ebrr1pldfKqyQOBt1MeXnhvw91HKuh8q",
+    "avatar": "foto-1702910398495.jpg",
+    "role": 1
+  },
+  {
+    "nombre": "ASD",
+    "apellido": "ASD",
+    "email": "ASD@xn--hotmail-9za.com",
+    "password": "$2a$10$tWzCJ761M9JatkIZutyVYuSyyw9eWZX8ETxknw1Of9V4pzt2EuK8i",
+    "avatar": "foto-1702910438133.jpg",
+    "role": 1
+  },
+  {
+    "nombre": "Angel",
+    "apellido": "Asaf",
+    "email": "angel_asaf@hotmail.com",
+    "password": "$2a$10$RbQQiEsrmDzMlBLVhzv7qOmGvUWSpYj6doc9n5hbtsH6653RhskNW",
+    "avatar": "foto-1702925584657.jpg",
+    "role": 2
+  }
+]

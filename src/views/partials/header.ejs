@@ -1,14 +1,30 @@
 <header class="main-header">
     <div class="main-header-top-bar">
-
-        <a href="/"><img class="logo" src="/img/Logo Png Tecnopoint.png"
-                alt="logo"></a>
+        <figure class="logo">
+        <a href="/"><img src="/img/Logo Png Tecnopoint.png"
+                alt="logo"></figure></a>
         <input class="search" type="text" placeholder="Buscar">
-        <div class="login">
-            <a href="../usuario/login">Ingresar</a>
-            <a href="../usuario/register">Registrate</a>
-            <a href="../producto/cart"><i class="fa-solid fa-cart-shopping"></i></a>
-        </div>
+        <% if (locals.usuario && locals.usuario.role === 2) { %>
+            <div class="login">
+                <a href="../admin">Admin</a>
+                <a href="../producto/cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="../usuario/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+            </div>
+        <% } else if (locals.usuario) { %>  
+           
+            <div class="login">
+                <a href="#">Mis compras</a>
+                <a href="../producto/cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="../usuario/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+            </div>
+        <% } else { %>
+            
+            <div class="login">
+                <a href="../usuario/login">Ingresar</a>
+                <a href="../usuario/register">Registrate</a>
+                <a href="../producto/cart"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+        <% } %>
     </div>
     <a href="#" class="hamburger-button">
         <i class="fa-solid fa-bars"></i>

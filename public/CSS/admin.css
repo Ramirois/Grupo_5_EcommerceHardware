@@ -1,0 +1,26 @@
+.form-goup {
+    color: white;
+}
+
+.container {
+    width: 100%;
+    text-align: center;
+}
+
+.custom-display {
+    font-size: 2.5rem; /* Tamaño de fuente equivalente a display-5 */
+    text-align: center;
+    padding-bottom: 10px; /* Ajusta el espaciado superior según tus necesidades */
+  }
+
+  .boton-agregar {
+
+    font-size: 1.5rem;
+    color: green;
+    text-align: left;
+  }
+  .boton-agregar a {
+    color: green;
+  }
+
+  

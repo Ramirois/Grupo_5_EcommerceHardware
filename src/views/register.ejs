@@ -5,47 +5,58 @@
 <body>
     <%- include('./partials/header.ejs') %>
     <main>
-        <div class="registrate">
-          <form action="/crear-registro" method="POST" class="crearregistro">
-              <label class="etiqueta-registro">Registrate</label>
-              <div class="control-etiqueta">
-                 <label class="etiqueta-formulario">Nombre</label>
+             <% if(typeof(errors) != 'undefined'){%>
+                 <ul class="errores">
+                    <% errors.forEach(error => { %>
+                       <li><%= error.msg%></li>
+                    <%});%>
+                  </ul>
+              <%}%>     
+       <div class="container">
+         <div class="registrate">
+           <form action="/usuario/register" method="post" class="crearregistro" enctype="multipart/form-data">
+               <label class="titulo-registro">Registrate</label>
+               <div class="control-etiqueta">
+                  <label class="etiqueta-formulario">Nombre</label>
+               </div>
+               <div class="control-formulario">
+                   <input type="text" name="nombre" class="input-form" placeholder="" >
+               </div>
+               <div class="control-etiqueta">
+                  <label class="etiqueta-formulario">Apellido</label>
+               </div>
+               <div class="control-formulario">
+                  <input type="text" name="apellido" class="input-form" placeholder="">
+                  
+               </div>
+               <div class="control-etiqueta">
+                  <label class="etiqueta-formulario">Email</label>
+               </div>
+               <div class="control-formulario">
+                   <input type="email" name="email" class="input-form" placeholder="">
+               </div>
+               <div class="control-etiqueta">
+                  <label class="etiqueta-formulario">Contraseña</label>
+               </div>
+               <div class="control-formulario">
+                   <input type="password" name="password" class="input-form" placeholder="contraseña" >
+               </div>
+               <div class="control-formulario">
+                   <input type="password" name="confirmarpassword" class="input-form" placeholder="confirmar contraseña" >
+               </div>
+               <div class="control-formulario">
+                <input type="file"   name="avatar"  placeholder="Debes eligir tu avatar...">
+            </div> 
+               <div class="control-checkbox">
+                  <input type="checkbox" name="terminosycondiciones" value="tyc" class="checkbox">
+                  <label for="etiqueta-checkbox">Acepto los terminos y condiciones</label>
               </div>
-              <div class="control-formulario">
-                  <input type="text" name="Nombre" required class="input-form" placeholder="" >
-              </div>
-              <div class="control-etiqueta">
-                 <label class="etiqueta-formulario">Apellido</label>
-              </div>
-              <div class="control-formulario">
-                 <input type="text" name="Apellido" class="input-form" placeholder="">
-                 
-              </div>
-              <div class="control-etiqueta">
-                 <label class="etiqueta-formulario">Email</label>
-              </div>
-              <div class="control-formulario">
-                  <input type="email" name="email" class="input-form" placeholder="">
-              </div>
-              <div class="control-etiqueta">
-                 <label class="etiqueta-formulario">Contraseña</label>
-              </div>
-              <div class="control-formulario">
-                  <input type="password" name="contraseña" class="input-form" placeholder="contraseña" required>
-              </div>
-              <div class="control-formulario">
-                  <input type="password" name="confirmarcontraseña" class="input-form" placeholder="confirmar contraseña" required>
-              </div>
-              <div class="control-checkbox">
-                 <input type="checkbox" name="terminosycondiciones" value="tyc" class="checkbox">
-                 <label for="etiqueta-checkbox">Acepto los terminos y condiciones</label>
-             </div>
-              <div class="botones">
-                  <button type="submit" class="boton-continuar"><a href="/">Continuar</a></button>
-              </div>
- 
-          </form>
-        </div>
+               <div class="botones">
+                   <button type="submit" class="boton-continuar">Continuar</button>
+               </div>
+        
+           </form>
+         </div>
      </main>
 
      <%- include('./partials/footer.ejs') %>

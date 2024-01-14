@@ -1,9 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
-    <%- include('./partials/head.ejs') %>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
 <body>
-    <%- include('./partials/header.ejs') %>
-    <h1>Hola Mundo!</h1>
-    <%- include('./partials/footer.ejs') %>
+  <%- include('./partials/header.ejs') %>
+  <div class="container">
+    <div class="contenedor-imagen">
+      <div class="discount-label">¡Oferta Especial!</div>
+      <img src="/img/asus-portatil-vibobook-f1500ea-ej3023-15.6-i7-1165g7-8gb-512gb-ssd.jpg" alt="Imagen del Producto">
+    </div>
+    <h2 class="custom-display">Nombre del Producto</h2>
+    <p class="description-dark">
+      Descripción del producto: HP provee las impresoras más seguras del mundo. Con ellas, conseguirás proteger tu información, obtener lo máximo en tecnología y un rendimiento impresionante que se adaptará a cualquier reto que tengas. Sin dudas, esta máquina es ideal para cumplir, de forma eficiente, la meta que te propongas.
+    </p>
+    <p class="price-highlight">Precio: $99.99</p>
+    <button>Agregar al Carrito</button>
+  </div>
+  <%- include('./partials/footer.ejs') %>
 </body>
 </html>
