@@ -9,23 +9,25 @@ module.exports = (sequelize, dataTypes) => {
         },
         // created_at: dataTypes.TIMESTAMP,
         // updated_at: dataTypes.TIMESTAMP,
-        nombre: {
+        name: {
             type: dataTypes.STRING(50),
             allowNull: false
         },
-        descripcion: {
+        description: {
             type: dataTypes.STRING(200)
         },
-        awards: {
+        color_id: {
             type: dataTypes.BIGINT(10).UNSIGNED,
-            allowNull: false
         },
-        release_date: {
-            type: dataTypes.DATEONLY,
-            allowNull: false
+        category_id: {
+            type: dataTypes.BIGINT(10).UNSIGNED,
         },
-        length: dataTypes.BIGINT(10),
-        genre_id: dataTypes.BIGINT(10)
+        price: {
+            type: dataTypes.DECIMAL(12,2)
+        },
+        image: {
+            type: dataTypes.STRING(100)
+        }
     };
     let config = {
         timestamps: true,
@@ -33,22 +35,19 @@ module.exports = (sequelize, dataTypes) => {
         updatedAt: 'updated_at',
         deletedAt: false
     }
-    const Movie = sequelize.define(alias,cols,config);
+    const Product = sequelize.define(alias,cols,config);
 
-    Movie.associate = function (models) {
-        Movie.belongsTo(models.Genre, { // models.Genre -> Genres es el valor de alias en genres.js
-            as: "genre",
-            foreignKey: "genre_id"
+    Product.associate = function (models) {
+        Product.belongsTo(models.Color, { // models.Genre -> Genres es el valor de alias en genres.js
+            as: "color",
+            foreignKey: "color_id"
         })
 
-        Movie.belongsToMany(models.Actor, { // models.Actor -> Actors es el valor de alias en actor.js
-            as: "actors",
-            through: 'actor_movie',
-            foreignKey: 'movie_id',
-            otherKey: 'actor_id',
-            timestamps: false
+        Product.belongsTo(models.Category, { // models.Actor -> Actors es el valor de alias en actor.js
+            as: "category",
+            foreignKey: 'category_id'
         })
     }
 
-    return Movie
+    return Product
 };

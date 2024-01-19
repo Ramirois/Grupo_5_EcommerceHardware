@@ -1,45 +1,40 @@
 const path = require('path');
 const fs = require('fs');
 const { log } = require('console');
+const db = require('../database/models');
+const sequelize = db.sequelize;
+const { Op } = require("sequelize");
+const moment = require('moment');
 
 module.exports = {
     index: (req,res) =>{
-        let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/productos.json')));
-        res.render(path.resolve(__dirname, '../views/admin/admin'), {productos});
+        db.Product.findAll({
+            include: [category]
+        })
+        .then(productos => {
+            res.render(path.resolve(__dirname, '../views/admin/admin'), {productos});
+        })
+        
     },
+    //create: (req,res)=>{
+      //  //res.send('Estamos por aquí');
+     //   res.render(path.resolve(__dirname,'../views/admin/create.ejs'))
+      //  //res.send(path.resolve(__dirname));
+    //}
     create: (req,res)=>{
-        //res.send('Estamos por aquí');
-        res.render(path.resolve(__dirname,'../views/admin/create.ejs'))
-        //res.send(path.resolve(__dirname));
-    },
-    save: (req,res)=>{
-        // res.send('Estamos por aquí');
-        //Recibir datos del Front-end al Backend: Formulario (req.body)
-        //Query strings: req.query
-        //Cuando vienen de una etiqueta <a> - Ancla req.params
-        //console.log(req.body);
-        //Leer el archivo en formato json
-        let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/productos.json')));
-        let ultimoElemento = productos.pop();
-        productos.push(ultimoElemento);
-        //Preparar la variable con el contenido de los datos nuevos
-        let nuevoProducto = {
-         id: ultimoElemento.id + 1,
-         nombre: req.body.nombre,
-         descripcion: req.body.descripcion,
+        db.Product.create(
+        {
+         name: req.body.nombre,
+         description: req.body.descripcion,
+         id_color: req.body.id_color,
+         id_categoria: req.body.id_categoria,
          precio: req.body.precio,
-         descuento: req.body.descuento,
          image: req.file.filename
          //imagen: req.file.filename
-        }
-        //console.log(nuevoProducto);
-        //Agregamos nuestro nuevo producto al array
-        productos.push(nuevoProducto);
-        //Convertir nuestro array a un archivo en formato json
-        let nuevoProductoGuardar = JSON.stringify(productos,null,2);
-        //Guardar nuestro archivo
-        fs.writeFileSync(path.resolve(__dirname,'../data/productos.json'),nuevoProductoGuardar);
-        res.redirect('/admin');
+        })
+        .then(() => {
+            res.redirect('/admin');
+        })
      },
     show: (req,res)=>{
         //console.log(req.params);

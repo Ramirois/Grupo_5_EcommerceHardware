@@ -19,8 +19,8 @@ const upload = multer({storage});
 
 
 router.get('/admin', admincontroller.index);
-router.get('/admin/create', admincontroller.create);
-router.post('/admin/create', upload.single('image'), admincontroller.save);
+//router.get('/admin/create', admincontroller.create);
+router.post('/admin/create', upload.single('image'), admincontroller.create);
 router.get('/admin/detail/:id', admincontroller.show);
 router.get('/admin/edit/:id', admincontroller.edit);
 router.put('/admin/edit/:id',admincontroller.update);
