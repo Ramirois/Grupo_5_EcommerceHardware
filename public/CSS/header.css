@@ -16,6 +16,7 @@ a{
 }
 
 .main-header {
+    width: 100vw;
     background-color:  #040c24;
     padding: 10px;
 }

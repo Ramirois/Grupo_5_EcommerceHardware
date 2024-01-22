@@ -19,15 +19,15 @@
                             <form action="/admin/edit/<%= productoEditar.id%>?_method=PUT
                             " method="POST"  >
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="nombre" placeholder="Nombre" required="required" value="<%= productoEditar.nombre%>">
+                                    <input type="text" class="form-control" name="nombre" placeholder="Nombre" required="required" value="<%= productoEditar.name%>">
                                 </div>	
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="descripcion" placeholder="Descripción" required="required" value="<%= productoEditar.descripcion%>">
+                                    <input type="text" class="form-control" name="descripcion" placeholder="Descripción" required="required" value="<%= productoEditar.description%>">
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" class="form-control" name="precio" placeholder="Indique el precio" required="required" value="<%= productoEditar.precio%>">
+                                    <input type="number" class="form-control" name="precio" placeholder="Indique el precio" required="required" value="<%= productoEditar.price%>">
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <select  name="descuento" class="custom-select" id="validationCustom04" required>
                                       <option disabled value="#">Seleccione un descuento"</option>
                                       <option value="0" <%= productoEditar.descuento == 0 ? "selected" : null %>
@@ -35,7 +35,7 @@
                                       <option value="15" <%= productoEditar.descuento == 15 ? "selected" : null %>>15%</option>
                                       <option value="30" <%= productoEditar.descuento == 30 ? "selected" : null %>>30%</option>
                                     </select>
-                                </div>
+                                </div> -->
                                 <!--Aquí solicito la imagen-->
                                 
                                 <div class="form-group">

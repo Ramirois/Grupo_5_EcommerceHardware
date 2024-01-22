@@ -6,31 +6,31 @@ const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 const moment = require('moment');
 
+//algunos métodos que usaban los json como data quedan comentados
+
 module.exports = {
     index: (req,res) =>{
-        db.Product.findAll({
-            include: [category]
-        })
+        db.Product.findAll()
         .then(productos => {
             res.render(path.resolve(__dirname, '../views/admin/admin'), {productos});
         })
         
     },
-    //create: (req,res)=>{
-      //  //res.send('Estamos por aquí');
-     //   res.render(path.resolve(__dirname,'../views/admin/create.ejs'))
-      //  //res.send(path.resolve(__dirname));
-    //}
+    new: (req,res)=>{
+        db.Category.findAll()
+        .then((categorias => {
+        res.render(path.resolve(__dirname,'../views/admin/create.ejs'), {categorias});
+    }))
+    },
     create: (req,res)=>{
         db.Product.create(
         {
          name: req.body.nombre,
          description: req.body.descripcion,
-         id_color: req.body.id_color,
-         id_categoria: req.body.id_categoria,
-         precio: req.body.precio,
+         //color_id: req.body.id_color,
+         //category_id: req.body.id_categoria,
+         price: req.body.precio,
          image: req.file.filename
-         //imagen: req.file.filename
         })
         .then(() => {
             res.redirect('/admin');
@@ -38,26 +38,34 @@ module.exports = {
      },
     show: (req,res)=>{
         //console.log(req.params);
-        let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/productos.json')));
-        let id = req.params.id;
-        let miProducto;
-        productos.forEach(producto => {
+        //let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/productos.json')));
+        //let id = req.params.id;
+        /* productos.forEach(producto => {
             if(producto.id == id){
                 miProducto = producto;
             }
-        });
-        res.render(path.resolve(__dirname, '../views/admin/detail.ejs'),{miProducto})
+        }); */
+        db.Product.findByPk(req.params.id)
+        .then(
+            producto => {
+                res.render(path.resolve(__dirname, '../views/admin/detail.ejs'),{producto})
+            })
     },
     edit : (req,res)=>{
-        let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/productos.json')));
+      /*   let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/productos.json')));
         let id = req.params.id;
         let productoEditar = productos.find(producto =>{
             return producto.id == id
         })
-        res.render(path.resolve(__dirname,'../views/admin/edit.ejs'),{productoEditar})
+        res.render(path.resolve(__dirname,'../views/admin/edit.ejs'),{productoEditar}) */
+
+        db.Product.findByPk(req.params.id)
+        .then(productoEditar =>{
+            res.render(path.resolve(__dirname,'../views/admin/edit.ejs'),{productoEditar})
+        })
     },
     update: (req, res) => {
-        let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/productos.json')));
+        /* let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/productos.json')));
         let id = req.params.id;
     
         // Buscar el índice del producto a actualizar
@@ -77,15 +85,34 @@ module.exports = {
             res.redirect('/admin');
         } else {
             res.status(404).send('Producto no encontrado');
-        }
+        } */
+
+        db.Product.update({
+            name: req.body.nombre,
+            description: req.body.descripcion,
+            //color_id: req.body.id_color,
+            //category_id: req.body.id_categoria,
+            price: req.body.precio,
+            //image: req.file.filename
+           },
+           {
+            where: {id: req.params.id}
+           })
+           .then(()=> res.redirect('/admin'))
     }
     ,
     destroy: (req,res)=>{
-        let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/productos.json')));  
+        /* let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/productos.json')));  
         let id = req.params.id;
         let productosFinal = productos.filter(producto => producto.id != id)
         let prodctoGuardarFinal = JSON.stringify(productosFinal,null,2);
         fs.writeFileSync(path.resolve(__dirname,'../data/productos.json'),prodctoGuardarFinal);
-       res.redirect('/admin');
+       res.redirect('/admin'); */
+
+       db.Product.destroy({
+        where: {id: req.params.id
+        }
+       })
+       .then(()=> res.redirect('/admin'))
     }
 }

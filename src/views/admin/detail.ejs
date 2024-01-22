@@ -10,17 +10,11 @@
 
       <section class="container">
             <article>
-                
-                <% if (miProducto.descuento == 30) { %>
-                  <img class="descuento" src="/img/promo30.png" alt="Descuento 30%">
-                <% } else if(miProducto.descuento == 15){%>
-                  <img class="descuento" src="/img/promo15.png" alt="Descuento 15%">
-                <%}%>
                 <div class="card-body">
-                  <img src="/img/productos/<%=miProducto.image%>"> 
-                  <h5 class="card-title"><%= miProducto.nombre%></h5>
-                  <h5 class="card-title">$ <%= miProducto.precio %></h5>
-                  <p class="card-text"><%= miProducto.descripcion %></p>
+                  <img src="/img/productos/<%=producto.image%>"> 
+                  <h5 class="card-title"><%=producto.name%></h5>
+                  <h5 class="card-title">$<%=producto.price%></h5>
+                  <p class="card-text"><%=producto.description%></p>
                   
                 </div>
                 <a href="/admin" class="btn btn-danger">Volver</a>
