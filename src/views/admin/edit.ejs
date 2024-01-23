@@ -16,28 +16,44 @@
                 <div class="row" >
                     <div class="col-8 mx-auto bg-light ">
                         <div class="create-form">
-                            <form action="/admin/edit/<%= productoEditar.id%>?_method=PUT
+                            <form action="/admin/edit/<%= producto.id%>?_method=PUT
                             " method="POST"  >
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="nombre" placeholder="Nombre" required="required" value="<%= productoEditar.name%>">
+                                    <input type="text" class="form-control" name="nombre" placeholder="Nombre" required="required" value="<%=producto.name%>">
                                 </div>	
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="descripcion" placeholder="Descripción" required="required" value="<%= productoEditar.description%>">
+                                    <input type="text" class="form-control" name="descripcion" placeholder="Descripción" required="required" value="<%=producto.description%>">
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" class="form-control" name="precio" placeholder="Indique el precio" required="required" value="<%= productoEditar.price%>">
+                                    <input type="number" class="form-control" name="precio" placeholder="Indique el precio" required="required" value="<%=producto.price%>">
                                 </div>
-                                <!-- <div class="form-group">
-                                    <select  name="descuento" class="custom-select" id="validationCustom04" required>
-                                      <option disabled value="#">Seleccione un descuento"</option>
-                                      <option value="0" <%= productoEditar.descuento == 0 ? "selected" : null %>
-                                        >Sin descuento</option>
-                                      <option value="15" <%= productoEditar.descuento == 15 ? "selected" : null %>>15%</option>
-                                      <option value="30" <%= productoEditar.descuento == 30 ? "selected" : null %>>30%</option>
+                                <div class="form-group">
+                                    <label for="">Categoría</label>
+                                    <select  name="categoria" class="custom-select" id="validationCustom04" required>
+                                      <option selected disabled value="#">Seleccione categoría</option>
+                                      <%categorias.forEach((categoria)=>{%>
+                                        <%if(categoria.id == producto.category_id){%>
+                                            <option value="<%=categoria.id%>" selected><%=categoria.name%></option>
+                                            <%} else{%>
+                                                <option value="<%=categoria.id%>"><%=categoria.name%></option>
+                                            <%}%>
+                                      <%})%>
                                     </select>
-                                </div> -->
-                                <!--Aquí solicito la imagen-->
-                                
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="">Color</label>
+                                  <select  name="color" class="custom-select" id="validationCustom04" required>
+                                    <option selected disabled value="#">Seleccione color</option>
+                                    <%colores.forEach((color)=>{%>
+                                        <%if(color.id == producto.color_id){%>
+                                    <option value="<%=color.id%>" selected><%=color.name%></option>
+                                    <%} else{%>
+                                        <option value="<%=color.id%>"><%=color.name%></option>
+                                        <%}%>
+                                    <%})%>
+                                  </select>
+                              </div>
                                 <div class="form-group">
                                     <button type="submit" class="boton-continuar">Actualizar</button>
                                     <a href="/admin" class="boton-continuar">Volver</a>

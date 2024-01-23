@@ -12,14 +12,16 @@ module.exports = {
     index: (req,res) =>{
         db.Product.findAll()
         .then(productos => {
-            res.render(path.resolve(__dirname, '../views/admin/admin'), {productos});
+            res.render('admin/admin', {productos});
         })
         
     },
     new: (req,res)=>{
-        db.Category.findAll()
-        .then((categorias => {
-        res.render(path.resolve(__dirname,'../views/admin/create.ejs'), {categorias});
+        let pedidoCategorias = db.Category.findAll()
+        let pedidoColores = db.Color.findAll()
+        Promise.all([pedidoCategorias, pedidoColores])
+        .then((([categorias, colores]) => {
+        res.render('admin/create', {categorias:categorias , colores:colores});
     }))
     },
     create: (req,res)=>{
@@ -27,8 +29,8 @@ module.exports = {
         {
          name: req.body.nombre,
          description: req.body.descripcion,
-         //color_id: req.body.id_color,
-         //category_id: req.body.id_categoria,
+         color_id: req.body.color,
+         category_id: req.body.categoria,
          price: req.body.precio,
          image: req.file.filename
         })
@@ -48,7 +50,7 @@ module.exports = {
         db.Product.findByPk(req.params.id)
         .then(
             producto => {
-                res.render(path.resolve(__dirname, '../views/admin/detail.ejs'),{producto})
+                res.render('admin/detail',{producto})
             })
     },
     edit : (req,res)=>{
@@ -59,9 +61,12 @@ module.exports = {
         })
         res.render(path.resolve(__dirname,'../views/admin/edit.ejs'),{productoEditar}) */
 
-        db.Product.findByPk(req.params.id)
-        .then(productoEditar =>{
-            res.render(path.resolve(__dirname,'../views/admin/edit.ejs'),{productoEditar})
+        let pedidoProducto = db.Product.findByPk(req.params.id);
+        let pedidoCategorias = db.Category.findAll();
+        let pedidoColores = db.Color.findAll();
+        Promise.all([pedidoProducto, pedidoCategorias, pedidoColores])
+        .then(([producto, categorias, colores]) =>{
+            res.render('admin/edit', {producto:producto, categorias:categorias, colores:colores})
         })
     },
     update: (req, res) => {
@@ -90,8 +95,8 @@ module.exports = {
         db.Product.update({
             name: req.body.nombre,
             description: req.body.descripcion,
-            //color_id: req.body.id_color,
-            //category_id: req.body.id_categoria,
+            color_id: req.body.color,
+            category_id: req.body.categoria,
             price: req.body.precio,
             //image: req.file.filename
            },
