@@ -70,28 +70,6 @@ module.exports = {
         })
     },
     update: (req, res) => {
-        /* let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/productos.json')));
-        let id = req.params.id;
-    
-        // Buscar el índice del producto a actualizar
-        let index = productos.findIndex(producto => producto.id == id);
-    
-        if (index !== -1) {
-            // Crear una copia modificada del producto
-            let productoActualizado = { ...productos[index], ...req.body };
-            productos[index] = productoActualizado;
-    
-            // Convertir el array de productos a cadena JSON
-            let productosActualizadosString = JSON.stringify(productos, null, 2);
-    
-            // Escribir la cadena JSON actualizada en el archivo
-            fs.writeFileSync(path.resolve(__dirname, '../data/productos.json'), productosActualizadosString);
-    
-            res.redirect('/admin');
-        } else {
-            res.status(404).send('Producto no encontrado');
-        } */
-
         db.Product.update({
             name: req.body.nombre,
             description: req.body.descripcion,

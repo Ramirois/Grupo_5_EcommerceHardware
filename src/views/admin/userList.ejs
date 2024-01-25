@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+      
+    <!--Enlace a Fontawesone  (Para lograr disponer los iconos)-->
+    <script src="https://kit.fontawesome.com/7968cc1663.js" crossorigin="anonymous"></script>
+    <%- include('../partials/head.ejs') %>   
+<body>
+  <%- include('../partials/header.ejs') %>
+    <main>
+      <!--Administrador de productos-->
+      <div class="container">
+        <br>
+          <article >
+            <h2 class="custom-display">Administrador de usuarios</h2>
+          </article>
+          <article class="boton-agregar">
+            <a href="/usuario/register"><ion-icon name="add-circle-outline"></ion-icon>Agregar</a>
+          </article>
+          <article class="col-12" >
+          <table class=" table ">
+              <thead>
+                <tr>  
+                  <th scope="col">Id</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Apellido</th>
+                  <th scope="col">Ver</th>
+                  <th scope="col">Editar</th>
+                  <th scope="col">Borrar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% usuarios.forEach(usuario => { %>
+                <tr>
+                  <td><%= usuario.id%> </td>
+                  <td><%= usuario.first_name%> </td>
+                  <td><%= usuario.last_name%> </td>
+                  <td><a href="/usuario/detalle/<%=usuario.id%>"> <ion-icon name="eye-outline"></ion-icon></a></td>
+                  <td><a href="/usuario/edit/<%=usuario.id%>"> <ion-icon name="pencil-outline"></ion-icon></a></td>
+                  <td><a href="/usuario/delete/<%=usuario.id%>"><ion-icon name="trash-outline"></ion-icon></a></td>
+                </tr>
+                <% }); %>
+              </tbody>
+            </table> 
+          </article>       
+        
+        <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+      </div>
+    </main>
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>

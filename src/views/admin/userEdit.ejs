@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+      
+    <!--Enlace a Fontawesone  (Para lograr disponer los iconos)-->
+    <script src="https://kit.fontawesome.com/7968cc1663.js" crossorigin="anonymous"></script>
+  <%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header.ejs') %>
+    <main>
+             <% if(typeof(errors) != 'undefined'){%>
+                 <ul class="errores">
+                    <% errors.forEach(error => { %>
+                       <li><%= error.msg%></li>
+                    <%});%>
+                  </ul>
+              <%}%>     
+       <div class="container">
+         <div class="registrate">
+           <form action="/usuario/edit/<%=usuario.id%>?_method=PUT" method="POST" class="crearregistro">
+               <label class="titulo-registro">Editar usuario</label>
+               <div class="control-etiqueta">
+                  <label class="etiqueta-formulario">Nombre</label>
+               </div>
+               <div class="control-formulario">
+                   <input type="text" name="nombre" class="input-form" placeholder="" value="<%=usuario.first_name%>">
+               </div>
+               <div class="control-etiqueta">
+                  <label class="etiqueta-formulario">Apellido</label>
+               </div>
+               <div class="control-formulario">
+                  <input type="text" name="apellido" class="input-form" placeholder="" value="<%=usuario.last_name%>">
+                  
+               </div>
+               <div class="control-etiqueta">
+                  <label class="etiqueta-formulario">Email</label>
+               </div>
+               <div class="control-formulario">
+                   <input type="email" name="email" class="input-form" placeholder="" value="<%=usuario.email%>">
+               </div>
+               <div class="form-group">
+                <label for="">Categoría</label>
+                                    <select  name="rol" class="custom-select" id="validationCustom04" required>
+                                      <option selected disabled value="#">Seleccione Rol</option>
+                                      <%roles.forEach((rol)=>{%>
+                                        <%if(rol.id == usuario.role_id){%>
+                                            <option value="<%=rol.id%>" selected><%=rol.name%></option>
+                                            <%} else{%>
+                                                <option value="<%=rol.id%>"><%=rol.name%></option>
+                                            <%}%>
+                                      <%})%>
+                                    </select>
+
+               <div class="botones">
+                   <button type="submit" class="boton-continuar">Continuar</button>
+                   <a href="/usuario/list" class="boton-continuar">Volver</a>
+               </div>
+        
+           </form>
+         </div>
+     </main>
+
+     <%- include('../partials/footer.ejs') %>
+</body>
+</html>

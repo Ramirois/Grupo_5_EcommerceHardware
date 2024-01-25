@@ -2,64 +2,69 @@ const path = require('path');
 const fs = require('fs');
 const bcrypt = require('bcryptjs');
 const multer = require('multer');
-
 const { validationResult } = require('express-validator');
+const db = require('../database/models');
+const sequelize = db.sequelize;
+const { Op, where } = require("sequelize");
+const moment = require('moment');
 
 
 const userController = {
+    list: (req, res) =>{
+      db.User.findAll()
+      .then(usuarios => {
+        res.render('admin/userList', {usuarios})
+      })
+    },
+    userDetail: (req, res) => {
+      db.User.findByPk(req.params.id,
+        { include : [{association: 'role'}]})
+        .then(usuario=> res.render('admin/userDetail', {usuario}))
+    },
     login: (req,res)=>{
     res.render(path.resolve(__dirname, '../views/login'));
 },
 
     register: (req,res)=>{
-
-    res.render(path.resolve(__dirname, '../views/register'));
+      res.render('register');
 },
     create: (req, res) => {
     let errors = validationResult(req);
     if (errors.isEmpty()) {
-      let user = {
-        nombre: req.body.nombre,
-        apellido: req.body.apellido,
+      db.User.create({
+        first_name: req.body.nombre,
+        last_name: req.body.apellido,
         email: req.body.email,
         password: bcrypt.hashSync(req.body.password, 10),
-        avatar:  req.file ? req.file.filename : '',
-        role: 1
-      }
-      let archivoUsers = fs.readFileSync(path.resolve(__dirname, '../data/usuarios.json'), {
-        encoding: 'utf-8'
-      });
-      let users;
-      if (archivoUsers == "") {
-        users = [];
+        image:  req.file ? req.file.filename : '',
+        role_id: 2
+      })
+      .then(res.redirect('/usuario/list'))
       } else {
-        users = JSON.parse(archivoUsers);
-      };
-
-      users.push(user);
-      usersJSON = JSON.stringify(users, null, 2);
-      fs.writeFileSync(path.resolve(__dirname, '../data/usuarios.json'), usersJSON);
-      res.redirect('/usuario/login');
-    } else {
-      //return res.send(errors);
-
-      //Aquí incoporé el old: req.body  --> Para poder enviar a la vista los datos que el usuario indique y no tienen errores entonces deben persistir lo que el usuario escribio
-
-      //Si desean especificar debajo de cada input el mendaje de error específico, entonces deben enviar a la vista los errores de la siguiente manera: errors: errors.mapped()
-      //Después en la vista para mostrar debajo del input el respectivo error sólo deben hacer lo siguiente:
-      /*
-      <div class="col-12">
-                          <label for="username" class="form-label">Username: *</label>
-                          <input type="text" id="username" name="username" placeholder="Ej: Daniel Fuentes" class="form-input"
-                              value="<%= typeof old != 'undefined' ? old.username : '' %>">
-                          <p class="text-danger"><%= typeof errors == 'undefined' ? '' : errors.username ? errors.username.msg : '' %></p>
-              </div> 
-      */
-
-      return res.render(path.resolve(__dirname, '../views/register.ejs'), {
-        errors: errors.errors,  old: req.body
-      });
+      return res.render('register', {errors: errors.errors,  old: req.body});
     }
+  },
+  edit: (req, res)=>{
+    let pedidoRoles = db.Role.findAll()
+    let pedidoUsuario = db.User.findByPk(req.params.id)
+    Promise.all([pedidoRoles, pedidoUsuario])
+    .then(([roles, usuario]) =>{res.render('admin/userEdit', {roles, usuario})})
+  },
+  update: (req, res)=>{
+    db.User.update({
+      first_name: req.body.nombre,
+      last_name: req.body.apellido,
+      email: req.body.email,
+      role_id: req.body.rol
+    },
+    {where: {id: req.params.id}})
+    .then(res.redirect('/usuario/list'))
+  },
+  destroy: (req, res) => {
+    db.User.destroy({
+      where: {id: req.params.id}
+    })
+    .then(res.redirect('/usuario/list'))
   },
 ingresar: (req,res) =>{
     const errors = validationResult(req);

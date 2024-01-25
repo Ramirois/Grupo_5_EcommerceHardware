@@ -84,13 +84,15 @@ const validacionesRegistro = [
     ]
 
 router.get('/login', userController.login);
-
 router.post('/login', validacionesLogin,userController.ingresar);
-
 router.get('/register', userController.register);
-
 router.post('/register', upload.single('avatar'),validacionesRegistro, userController.create);
-
 router.get('/logout', userController.logout);
+router.get('/list', userController.list);
+router.get('/detalle/:id', userController.userDetail);
+router.get('/edit/:id', userController.edit);
+router.put('/edit/:id', userController.update);
+router.get('/delete/:id', userController.destroy);
+
 
 module.exports = router;
