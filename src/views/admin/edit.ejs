@@ -54,6 +54,20 @@
                                     <%})%>
                                   </select>
                               </div>
+
+                              <div class="form-group">
+                                <label for="">Marca</label>
+                              <select  name="marca" class="custom-select" id="validationCustom04" required>
+                                <option selected disabled value="#">Seleccione marca</option>
+                                <%marcas.forEach((marca)=>{%>
+                                    <%if(marca.id == producto.brand_id){%>
+                                <option value="<%=marca.id%>" selected><%=marca.name%></option>
+                                <%} else{%>
+                                    <option value="<%=marca.id%>"><%=marca.name%></option>
+                                    <%}%>
+                                <%})%>
+                              </select>
+                          </div>
                                 <div class="form-group">
                                     <button type="submit" class="boton-continuar">Actualizar</button>
                                     <a href="/admin" class="boton-continuar">Volver</a>

@@ -19,9 +19,10 @@ module.exports = {
     new: (req,res)=>{
         let pedidoCategorias = db.Category.findAll()
         let pedidoColores = db.Color.findAll()
-        Promise.all([pedidoCategorias, pedidoColores])
-        .then((([categorias, colores]) => {
-        res.render('admin/create', {categorias:categorias , colores:colores});
+        let pedidoMarcas = db.Brand.findAll()
+        Promise.all([pedidoCategorias, pedidoColores, pedidoMarcas])
+        .then((([categorias, colores, marcas]) => {
+        res.render('admin/create', {categorias:categorias , colores:colores, marcas:marcas});
     }))
     },
     create: (req,res)=>{
@@ -31,6 +32,7 @@ module.exports = {
          description: req.body.descripcion,
          color_id: req.body.color,
          category_id: req.body.categoria,
+         brand_id: req.body.marca,
          price: req.body.precio,
          image: req.file.filename
         })
@@ -64,9 +66,10 @@ module.exports = {
         let pedidoProducto = db.Product.findByPk(req.params.id);
         let pedidoCategorias = db.Category.findAll();
         let pedidoColores = db.Color.findAll();
-        Promise.all([pedidoProducto, pedidoCategorias, pedidoColores])
-        .then(([producto, categorias, colores]) =>{
-            res.render('admin/edit', {producto:producto, categorias:categorias, colores:colores})
+        let pedidoMarcas = db.Brand.findAll();
+        Promise.all([pedidoProducto, pedidoCategorias, pedidoColores, pedidoMarcas])
+        .then(([producto, categorias, colores, marcas]) =>{
+            res.render('admin/edit', {producto:producto, categorias:categorias, colores:colores, marcas:marcas})
         })
     },
     update: (req, res) => {
@@ -75,6 +78,7 @@ module.exports = {
             description: req.body.descripcion,
             color_id: req.body.color,
             category_id: req.body.categoria,
+            brand_id: req.body.marca,
             price: req.body.precio,
             //image: req.file.filename
            },
