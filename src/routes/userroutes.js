@@ -52,17 +52,17 @@ const validacionesLogin = [
 const validacionesRegistro = [
       
     body('nombre').isLength({
-          min: 1
+          min: 2
         }).withMessage('El campo nombre no puede estar vacío'),
-      body('apellido').isLength({min: 1
+      body('apellido').isLength({min: 2
         }).withMessage('El campo apellido no puede estar vacío'),
       body('email').isEmail().withMessage('Agregar un email válido'),
   
        
-      body('password').isLength({min: 6 }).withMessage('La contraseña debe tener un mínimo de 6 caractéres'),
+      body('password').isLength({min: 8 }).withMessage('La contraseña debe tener un mínimo de 8 caractéres'),
       
       
-      body('confirmarpassword').isLength({min: 6 }).withMessage('La confirmación de la contraseña debe tener un mínimo de 6 caractéres'),
+      body('confirmarpassword').isLength({min: 8 }).withMessage('La confirmación de la contraseña debe tener un mínimo de 8 caractéres'),
   
      
   
@@ -80,7 +80,7 @@ const validacionesRegistro = [
               return true
           }
           return false;
-      }).withMessage('Debe elegir su avatar y debe ser un archivo con formato: .JPG ó JPEG ó PNG')
+      }).withMessage('Debe elegir su avatar y debe ser un archivo con formato: .JPG o JPEG o PNG')
     ]
 
 router.get('/login', userController.login);

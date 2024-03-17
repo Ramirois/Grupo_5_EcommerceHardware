@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const { log } = require('console');
+const { validationResult } = require('express-validator');
 const db = require('../database/models');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
@@ -26,19 +27,31 @@ module.exports = {
     }))
     },
     create: (req,res)=>{
-        db.Product.create(
-        {
-         name: req.body.nombre,
-         description: req.body.descripcion,
-         color_id: req.body.color,
-         category_id: req.body.categoria,
-         brand_id: req.body.marca,
-         price: req.body.precio,
-         image: req.file.filename
-        })
-        .then(() => {
-            res.redirect('/admin');
-        })
+        let errors = validationResult(req);
+        if(errors.isEmpty()){
+            db.Product.create(
+                {
+                 name: req.body.nombre,
+                 description: req.body.descripcion,
+                 color_id: req.body.color,
+                 category_id: req.body.categoria,
+                 brand_id: req.body.marca,
+                 price: req.body.precio,
+                 image: req.file.filename
+                })
+                .then(() => {
+                    res.redirect('/admin');
+                })
+        } else {
+            let pedidoCategorias = db.Category.findAll()
+        let pedidoColores = db.Color.findAll()
+        let pedidoMarcas = db.Brand.findAll()
+        Promise.all([pedidoCategorias, pedidoColores, pedidoMarcas])
+        .then((([categorias, colores, marcas]) => {
+        res.render('admin/create', {errors: errors.mapped(),  old: req.body, categorias:categorias , colores:colores, marcas:marcas});
+    }))
+        }
+        
      },
     show: (req,res)=>{
         //console.log(req.params);

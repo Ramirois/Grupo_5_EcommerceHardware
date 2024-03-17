@@ -41,7 +41,7 @@ const userController = {
       })
       .then(res.redirect('/usuario/list'))
       } else {
-      return res.render('register', {errors: errors.errors,  old: req.body});
+      return res.render('register', {errors: errors.mapped(),  old: req.body});
     }
   },
   edit: (req, res)=>{

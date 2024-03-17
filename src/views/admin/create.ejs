@@ -14,10 +14,20 @@
                     
                             <form action="/admin/create" method="POST" enctype="multipart/form-data" >
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="nombre" placeholder="Nombre" required="required" value="">
+                                    <input type="text" class="form-control" name="nombre" placeholder="Nombre" required="required" value="<%= locals.old ? old.nombre : null %>">
+                                    <% if(locals.errors && errors.nombre) { %>
+                                      <div class="text-danger">
+                                        <%= errors.nombre.msg %>
+                                      </div>
+                                      <% } %>
                                 </div>	
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="descripcion" placeholder="Descripción" required="required" value="">
+                                    <input type="text" class="form-control" name="descripcion" placeholder="Descripción" required="required" value="<%= locals.old ? old.descripcion : null %>">
+                                    <% if(locals.errors && errors.descripcion) { %>
+                                      <div class="text-danger">
+                                        <%= errors.descripcion.msg %>
+                                      </div>
+                                      <% } %>
                                 </div>
                                 <div class="form-group">
                                     <input type="number" class="form-control" name="precio" placeholder="Precio" required="required" value="">
@@ -54,6 +64,11 @@
                                 <!--Aquí solicito la imagen-->
                                 <label for="image">Imagen</label>
                                 <input type="file" name="image" id="image">
+                                <% if(locals.errors && errors.image) { %>
+                                  <div class="text-danger">
+                                    <%= errors.image.msg %>
+                                  </div>
+                                  <% } %>
                                 
                                 <div class="form-group">
                                     <button type="submit" class="btn btn btn-info">Guardar</button>
