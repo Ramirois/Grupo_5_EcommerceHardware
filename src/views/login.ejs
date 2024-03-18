@@ -13,7 +13,10 @@
                 <label class="etiqueta-formulario">Usuario</label>
              </div>
              <div class="control-formulario">
-                 <input type="email" name="email" class="input-form" placeholder="">
+                 <input type="email" name="email" class="input-form" id="inputEmail" placeholder="">
+                 <div>
+                  <small class="text-danger erEmail"></small>
+                </div>
                  <% if(typeof(errors) != 'undefined' && errors.email){%>
                     <span class="text-danger">
                       <%= errors.email.msg %>
@@ -24,7 +27,10 @@
                 <label class="etiqueta-formulario">Contraseña</label>
              </div>
              <div class="control-formulario">
-                 <input type="password" name="password" class="input-form" placeholder="">
+                 <input type="password" name="password" class="input-form" id="inputPassword" placeholder="">
+                 <div>
+                  <small class="text-danger erPassword"></small>
+                </div>
                  <% if(typeof(errors) != 'undefined' && errors.password){%>
                     <span class="text-danger">
                       <%= errors.password.msg %>
@@ -36,7 +42,7 @@
                     <label for="etiqueta-checkbox">Recordarme</label>
                 </div>
              <div class="boton">
-                 <button type="submit" class="boton-continuar">Continuar</button>
+                 <button type="submit" class="boton-continuar" id="btnSubmit" >Continuar</button>
              </div>
              <div class="boton-registro">
                 <button type="submit" class="boton-crear"><a href="/usuario/register">Registrate</a></button>
@@ -46,5 +52,6 @@
     </main>
 
     <%- include('./partials/footer.ejs') %>
+    <script src="/js/login.js"></script>
 </body>
 </html>
