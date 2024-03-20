@@ -11,7 +11,9 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const acceso = require(path.resolve(__dirname, './src/middlewares/acceso'));
 const mantenimiento = require(path.resolve(__dirname, './src/middlewares/mantenimiento'));
-
+const db = require('./src/database/models');
+const port = 3000;
+const cors = require('cors');
 app.use(express.static(publicPath));
 
 app.set('view engine', 'ejs');
@@ -23,17 +25,23 @@ app.use(methodOverride('_method'));
 
 
 
+
+
 app.use(session({
     secret : 'topSecret',
     resave: true,
     saveUninitialized: true,
-}))
+}));
+
+app.use(cors());
 
 app.use(cookieParser());
 
 app.use(acceso);
 
 
+const userApiRoutes = require('./src/routes/apiroutes/userRoutesApi');
+const productApiRoutes = require('./src/routes/apiroutes/productRoutesApi');
 
 app.use('/', rutas);
 
@@ -41,9 +49,14 @@ app.use('/usuario', rutausuario);
 
 app.use('/producto', rutaproductos);
 
+app.use('/api/users', userApiRoutes);
+
+app.use('/api/products', productApiRoutes);
+
 app.use(rutaadmin);
 
-app.listen(3000, () =>{
-    console.log("Servidor corriendo en el servidor 3000");
+app.listen(port, () =>{
+    console.log("Servidor corriendo en el servidor " + port);
+   
 });
 
