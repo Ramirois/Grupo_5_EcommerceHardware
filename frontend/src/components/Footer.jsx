@@ -2,8 +2,11 @@ import React from 'react'
 
 export const Footer = () => {
   return (
-    <div className="bg-gradient-to-r from-cyan-600 to-blue-700 text-4xl text-center text-slate-100 p-7">
-      Footer 🙌
+    <footer className="bg-gray-800 text-white text-xs py-4 fixed bottom-0 w-full z-10">
+    <div className="container mx-auto text-center">
+      <p>Tecnopoint</p>
+      <p>© {new Date().getFullYear()} Mi Sitio Web. Todos los derechos reservados.</p>
     </div>
-  )
+  </footer>
+);
 }
