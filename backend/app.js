@@ -14,6 +14,7 @@ const mantenimiento = require(path.resolve(__dirname, './src/middlewares/manteni
 const db = require('./src/database/models');
 const port = 3000;
 const cors = require('cors');
+const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
 app.use(express.static(publicPath));
 
 app.set('view engine', 'ejs');
@@ -32,6 +33,8 @@ app.use(session({
     resave: true,
     saveUninitialized: true,
 }));
+
+app.use(userLoggedMiddleware);
 
 app.use(cors());
 

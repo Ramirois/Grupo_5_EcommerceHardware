@@ -13,7 +13,7 @@
                 <label class="etiqueta-formulario">Usuario</label>
              </div>
              <div class="control-formulario">
-                 <input type="email" name="email" class="input-form" id="inputEmail" placeholder="">
+                 <input type="email" name="email" class="input-form" id="inputEmail" placeholder="" value="<%= locals.old ? old.email : null %>">
                  <div>
                   <small class="text-danger erEmail"></small>
                 </div>

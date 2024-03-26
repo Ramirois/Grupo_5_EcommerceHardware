@@ -7,7 +7,6 @@ const { body } = require('express-validator');
 const path = require('path');
 const userController = require(path.resolve(__dirname, '../controllers/usercontroller'));
 
-
 let archivoUsuarios =  JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/usuarios.json')))
 
 const storage = multer.diskStorage({

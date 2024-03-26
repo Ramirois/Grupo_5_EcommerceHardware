@@ -22,7 +22,7 @@ const userController = {
         .then(usuario=> res.render('admin/userDetail', {usuario}))
     },
     login: (req,res)=>{
-    res.render(path.resolve(__dirname, '../views/login'));
+    res.render('login');
 },
 
     register: (req,res)=>{
@@ -30,19 +30,29 @@ const userController = {
 },
     create: (req, res) => {
     let errors = validationResult(req);
-    if (errors.isEmpty()) {
-      db.User.create({
-        first_name: req.body.nombre,
-        last_name: req.body.apellido,
-        email: req.body.email,
-        password: bcrypt.hashSync(req.body.password, 10),
-        image:  req.file ? req.file.filename : '',
-        role_id: 2
-      })
-      .then(res.redirect('/usuario/list'))
-      } else {
-      return res.render('register', {errors: errors.mapped(),  old: req.body});
-    }
+    db.User.findOne({where: {email : req.body.email} })
+    .then ((usuarioEncontrado) => {if (errors.isEmpty() && !usuarioEncontrado) {
+        db.User.create({
+          first_name: req.body.nombre,
+          last_name: req.body.apellido,
+          email: req.body.email,
+          password: bcrypt.hashSync(req.body.password, 5),
+          image:  req.file ? req.file.filename : '',
+          role_id: 2
+        })
+        .then(res.redirect('/usuario/list'))
+        } else {
+          if(usuarioEncontrado) errors.errors.push({
+            type: 'field',
+            value: req.body.email,
+            msg: 'Existe un usuario registrado con el email ingresado',
+            path: 'email',
+            location: 'body'
+          });
+        return res.render('register', {errors: errors.mapped(),  old: req.body});
+        
+      }
+    })
   },
   edit: (req, res)=>{
     let pedidoRoles = db.Role.findAll()
@@ -67,22 +77,48 @@ const userController = {
     .then(res.redirect('/usuario/list'))
   },
 ingresar: (req,res) =>{
-    const errors = validationResult(req);
-
-    if(errors.isEmpty()){
-      let archivoUsuarios =  JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/usuarios.json')));
-      let usuarioLogueado = archivoUsuarios.find(usuario => usuario.email == req.body.email)
-      
-      delete usuarioLogueado.password;
-      req.session.usuario = usuarioLogueado; 
-      if(req.body.recordarme){
-        res.cookie('email',usuarioLogueado.email,{maxAge: 1000 * 60 * 60 * 24})
+  const errors = validationResult(req);
+  if(errors.isEmpty()){
+    
+    db.User.findOne({where: {email: req.body.email}})
+    .then((usuario) =>{
+      if (usuario){
+        const passwordOk = bcrypt.compareSync(req.body.password, usuario.password);
+        console.log(req.body.password);
+        console.log(usuario.password);
+        if(passwordOk || (req.body.password == usuario.password)){
+          delete usuario.password;
+        req.session.userLogged = usuario;
+        if(req.body.recordarme){
+          res.cookie('email',req.body.email,{maxAge: 1000 * 60 * 60 * 24})
+        }
+        res.redirect('detalle/' + usuario.id);
+        console.log(req.session);
+        } else{
+          errors.errors.push({
+            type: 'field',
+            value: req.body.email,
+            msg: 'Credenciales inválidas',
+            path: 'email',
+            location: 'body'
+          });
+          console.log(errors);
+          res.render('login',{errors:errors.mapped(),old:req.body}); 
+        }
+      } else {
+        errors.errors.push({
+          type: 'field',
+          value: req.body.email,
+          msg: 'Credenciales inválidas',
+          path: 'email',
+          location: 'body'
+        });
+        console.log(errors);
+        res.render('login',{errors:errors.mapped(),old:req.body}); 
       }
-      return res.redirect('/');  
-    }else{
-      
-      res.render(path.resolve(__dirname, '../views/login'),{errors:errors.mapped(),old:req.body});        
-    }
+    })
+  } else res.render('login',{errors:errors.mapped(),old:req.body});
+    
   },
   logout: (req,res) =>{
     req.session.destroy();

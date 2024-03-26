@@ -4,18 +4,20 @@
         <a href="/"><img src="/img/Logo Png Tecnopoint.png"
                 alt="logo"></figure></a>
         <input class="search" type="text" placeholder="Buscar">
-        <% if (locals.usuario && locals.usuario.role === 2) { %>
+        <% if (locals.isLogged && locals.usuario.role_id === 1) { %>
             <div class="login">
-                <a href="../admin">Admin</a>
+                <a href="/admin">Admin</a>
+                <a> Hola <%= locals.userLogged.first_name %> </a>
                 <a href="../producto/cart"><i class="fa-solid fa-cart-shopping"></i></a>
                 <a href="../usuario/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
             </div>
-        <% } else if (locals.usuario) { %>  
+        <% } else if (locals.isLogged) { %>  
            
             <div class="login">
                 <a href="#">Mis compras</a>
+                <a> Hola <%= locals.userLogged.first_name %> </a>
                 <a href="../producto/cart"><i class="fa-solid fa-cart-shopping"></i></a>
-                <a href="../usuario/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+                <a href="../logout"><i class="fa-solid fa-right-from-bracket"></i></a>
             </div>
         <% } else { %>
             
